@@ -46,8 +46,13 @@
               <%= link_to "ユーザー一覧" %>
         </li>
         <li class="header__item">
-              <%= link_to "商品追加" %>
+              <%= link_to "商品追加", new_admin_product_path %>
         </li>
+
+        <li class="header__item">
+              <%= link_to "ジャンル追加", new_admin_genre_path %>
+        </li>
+
         <li class="header__item">
               <%= link_to "お問い合わせ一覧" %>
         </li>
