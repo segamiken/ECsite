@@ -13,5 +13,13 @@ devise_for :customers, controllers: {
   passwords:     'customers/passwords',
   registrations: 'customers/registrations'
 }
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+#トップ画面
+	root 'products#index'
+
+
+#ユーザー側
+
+#管理者側
+
 end
