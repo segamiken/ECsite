@@ -48,11 +48,11 @@ devise_for :customers, controllers: {
 	end
 
 
-	namespace :admins do
+	namespace :admin do
 		resources :products, only:[:index, :show, :new, :create, :show, :edit, :update, :destroy]
 	end
 
-	namespace :admins do
+	namespace :admin do
 		resources :genres, only:[:new, :create]
 	end
 end

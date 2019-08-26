@@ -1,0 +1,9 @@
+<div>
+	<%= form_for @genre,url: admin_genres_path do |f| %>
+	<%= f.label :genre_name, "ジャンルの名前" %>
+	<br>
+	<%= f.text_field :genre_name %>
+
+	<%= f.submit "ジャンルを保存" %>
+	<% end %>
+</div>
