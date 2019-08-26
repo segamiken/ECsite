@@ -38,8 +38,21 @@ devise_for :customers, controllers: {
 	end
 
 
-
-
 #管理者側
+	namespace :admin do
+		resources :customers, only:[:index, :show, :edit, :update] do
+		collection do
+			post '/delete' => 'customers#delete'
+		end
+		end
+	end
 
+
+	namespace :admins do
+		resources :products, only:[:index, :show, :new, :create, :show, :edit, :update, :destroy]
+	end
+
+	namespace :admins do
+		resources :genres, only:[:new, :create]
+	end
 end
