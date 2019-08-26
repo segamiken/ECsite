@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Ecsite</title>
+    <title>CD SAMURAI</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -11,9 +11,69 @@
 
   <body>
 
-    <head>
-      <title></title>
-    </head>
+    <header class="header">
+      <h1 class="header__title">
+      <% if customer_signed_in? %>
+        <%=link_to "CD SAMURAI", root_path %>
+      <% elsif admin_signed_in? %>
+        <%=link_to "CD SAMURAI", root_path %>
+      <% else %>
+        <%=link_to "CD SAMURAI", root_path %>
+      <% end %>
+      </h1>
+      <nav class="header__navs">
+        <ul class="header__nav">
+        <!--エンドユーザーログイン時 -->
+        <% if customer_signed_in? %>
+        <li class="header__item">
+              <%= link_to "ホーム", root_path %>
+        </li>
+        <li class="header__item">
+              <%= link_to "マイページ" %>
+        </li>
+        <li class="header__item">
+              <%= link_to "お問い合わせ" %>
+        </li>
+        <li class="header__item">
+              <%= link_to "ログアウト" , destroy_customer_session_path, :method => :delete %>
+        </li>
+          <!--管理者ログイン時 -->
+         <% elsif admin_signed_in? %>
+        <li class="header__item">
+              <%= link_to "商品一覧" %>
+        </li>
+        <li class="header__item">
+              <%= link_to "ユーザー一覧" %>
+        </li>
+        <li class="header__item">
+              <%= link_to "商品追加" %>
+        </li>
+        <li class="header__item">
+              <%= link_to "お問い合わせ一覧" %>
+        </li>
+        <li class="header__item">
+              <%= link_to "ログアウト",  destroy_admin_session_path, :method => :delete  %>
+        </li>
+        <!--非ログイン時 -->
+        <% else %>
+        <li class="header__item">
+              <%=link_to "ホーム", root_path %>
+          </li>
+        <li class="header__item">
+              <%= link_to "ログイン", new_customer_session_path  %>
+        </li>
+        <li class="header__item">
+              <%= link_to "新規登録", new_customer_registration_path  %>
+        </li>
+        <li class="header__item">
+              <%= link_to "お問い合わせ" %>
+        </li>
+        <% end %>
+
+        </ul>
+      </nav>
+   </header>
+
     <%= yield %>
   </body>
 </html>
