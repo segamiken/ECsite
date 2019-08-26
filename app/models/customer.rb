@@ -9,4 +9,6 @@ class Customer < ApplicationRecord
   has_many :cart_products
   has_many :favorites
   has_many :reviews
+
+  enum gender:{男: 0, 女: 1, その他: 2}
 end
