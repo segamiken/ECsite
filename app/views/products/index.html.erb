@@ -1,0 +1,20 @@
+<% @products.each do |p| %>
+<h3>CD情報</h3>
+	<%= p.cd_title %> <br>
+	<%= p.label_name %> <br>
+	<%= p.price %> <br>
+	<%= p.stock %> <br>
+
+<h4>DISC詳細</h4>
+	<% p.product_discs.each_with_index do |d, i| %>
+		<%= "#{i+1}"%>
+		<%= d.disc_title %> <br>
+		<% d.disc_singers.each do |s| %>
+			<%= s.singer_name %> <br>
+		<% end %>
+
+		<% d.disc_songs.each do |s| %>
+			<%= s.song_name %> <br>
+		<% end %>
+	<% end %>
+<% end %>

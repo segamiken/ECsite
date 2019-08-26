@@ -3,7 +3,7 @@ class Admin::ProductsController < ApplicationController
 		@product = Product.new
 		@disc = @product.product_discs.build
 		@singer = @disc.disc_singers.build
-		@song = @dics.disc_songs.build
+		@song = @disc.disc_songs.build
 	end
 
 	def create
@@ -26,6 +26,6 @@ class Admin::ProductsController < ApplicationController
 
 	private
 	def product_params
-		params.require(:product).permit(:genre_id, :cd_title, :label_name, :product_iamge, :price, :stock)
+		params.require(:product).permit(:genre_id, :cd_title, :label_name, :product_image, :price, :stock, product_discs_attributes: [:id, :disc_title, :destroy, disc_songs_attributes: [:id, :song_name, :_destroy], disc_singers_attributes: [:id, :singer_name, :destroy]])
 	end
 end

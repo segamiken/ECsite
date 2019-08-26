@@ -1,0 +1,43 @@
+<%= form_for @product, url: admin_products_path do |f| %>
+  <div class="field">
+    <%= f.label :cd_title, "CDのタイトル" %>
+    <%= f.text_field :cd_title %>
+  </div>
+
+  <div class="field">
+    <%= f.label :label_name, "レーベル名" %>
+    <%= f.text_field :label_name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :product_image, "CD画像" %>
+    <%= f.attachment_field :product_image %>
+  </div>
+
+  <div class="field">
+    <%= f.label :price, "値段" %>
+    <%= f.number_field :price %>円
+  </div>
+
+  <div class="field">
+    <%= f.label :stock, "在庫数" %>
+    <%= f.number_field :stock %>個
+  </div>
+
+  <div class="field">
+    <%= f.label :genre_id, "ジャンル" %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
+  </div>
+
+
+  <h3>ディスク詳細</h3>
+  <div id="discs">
+    <%= f.fields_for :product_discs do |disc| %>
+      <%= render 'product_disc_fields', f: disc %>
+    <% end %>
+    <div id="links">
+      <%= link_to_add_association 'DISC+',f, :product_discs %>
+    </div>
+    <%= f.submit %>
+  </div>
+<% end %>

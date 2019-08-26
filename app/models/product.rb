@@ -1,4 +1,6 @@
 class Product < ApplicationRecord
+
+	attachment :product_image
 	belongs_to :genre
 
 	has_many :product_discs
