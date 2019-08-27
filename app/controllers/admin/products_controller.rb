@@ -16,9 +16,16 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def edit
+		@product = Product.find(params[:id])
 	end
 
-	def udpate
+	def update
+		@product = Product.find(params[:id])
+		if @product.update(product_params)
+			redirect_to '/'
+		else
+			render :edit
+		end
 	end
 
 	def destroy
@@ -26,6 +33,6 @@ class Admin::ProductsController < ApplicationController
 
 	private
 	def product_params
-		params.require(:product).permit(:genre_id, :cd_title, :label_name, :product_image, :price, :stock, product_discs_attributes: [:id, :disc_title, :destroy, disc_songs_attributes: [:id, :song_name, :_destroy], disc_singers_attributes: [:id, :singer_name, :destroy]])
+		params.require(:product).permit(:genre_id, :cd_title, :label_name, :product_image, :price, :stock, product_discs_attributes: [:id, :disc_title, :destroy, disc_songs_attributes: [:id, :song_name, :_destroy], disc_singers_attributes: [:id, :singer_name, :_destroy]])
 	end
 end
