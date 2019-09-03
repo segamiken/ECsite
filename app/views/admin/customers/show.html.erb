@@ -1,5 +1,4 @@
 
-
 <div>
 	メールアドレス：<%= @customer.email %>
 </div>
@@ -29,9 +28,5 @@
 </div>
 
 
-<% if customer_signed_in? %>
-<% if @customer.id == current_customer.id %>
-<%=link_to "ユーザー情報の編集", edit_customer_path(params[:id]) %>
-<% end %>
-<% end %>
 
+<%=link_to "ユーザー情報の編集", edit_admin_customer_path(params[:id]) %>
