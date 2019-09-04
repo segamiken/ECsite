@@ -20,6 +20,42 @@
   box-sizing: border-box;
 }
 
+.clearfix::after {
+	content:"";
+	display: block;
+	clear: both;
+}
+
+header {
+	width: 100%;
+	background-color: yellow;
+	padding: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
+
+.header__title {
+	text-align: center;
+	padding: 15px 0;
+}
+
+.header__nav {
+	text-align: center;
+}
+
+.header__item {
+	display: inline-block;
+	margin: 0 5%;
+}
+
+
 .product__images {
 	float: left;
 	width: 25%;

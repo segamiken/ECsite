@@ -1,0 +1,18 @@
+<section class="title">
+	<h1>カート内商品一覧</h1>
+</section>
+
+
+<% @products.each do |p| %>
+<div class="product__images">
+	<%= link_to product_path(p.product_id) do %>
+	<%= attachment_image_tag p.product, :product_image, fallback: "img/no_image.jpg", class: "images" %>
+	<% end %>
+
+	<div class="product__description">
+		<%= p.product.cd_title %> <br>
+		<%= p.product.price %>円 <br>
+		カート内個数: <%= p.quantity %>
+	</div>
+</div>
+<% end %>

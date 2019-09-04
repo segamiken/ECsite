@@ -1,4 +1,4 @@
-
+<h2>基本情報</h2>
 
 <div>
 	メールアドレス：<%= @customer.email %>
@@ -29,9 +29,27 @@
 </div>
 
 
+<h2>登録住所</h2>
+<div>
+	<% @customer.client_addresses.each do |a| %>
+		<%= a.postal_code %> <br>
+ 		<%= a.address %> <br>
+ 		<%=link_to "住所の変更", edit_client_address_path(a.id) %>
+
+	<% end %>
+</div>
+
+
+
 <% if customer_signed_in? %>
 <% if @customer.id == current_customer.id %>
-<%=link_to "ユーザー情報の編集", edit_customer_path(params[:id]) %>
+<%=link_to "基本情報の編集", edit_customer_path(params[:id]) %>
+
+<%=link_to "住所の追加", new_client_address_path %>
+
+
+<%=link_to "カート内商品を見る", cart_products_path %>
+
 <% end %>
 <% end %>
 

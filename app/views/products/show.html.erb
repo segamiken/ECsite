@@ -1,0 +1,20 @@
+<h2>商品詳細</h2>
+
+<div>
+	商品名：<%= @product.cd_title %>
+</div>
+
+
+
+<div>
+<% if customer_signed_in? %>
+	<%= form_for @cart, url: product_cart_products_path(@product.id) do |f| %>
+	<h3>カートへ追加</h3>
+	<%= f.label :quantity, "個数" %>
+	<br>
+	<%= f.number_field :quantity %>
+	<br>
+	<%= f.submit "カートに商品を追加" %>
+	<% end %>
+<% end %>
+</div>
