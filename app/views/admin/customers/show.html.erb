@@ -1,0 +1,32 @@
+
+<div>
+	メールアドレス：<%= @customer.email %>
+</div>
+
+<div>
+	苗字：<%= @customer.last_name %>
+</div>
+
+<div>
+	名前：<%= @customer.first_name %>
+</div>
+
+<div>
+	カナ：<%= @customer.last_name_kana %>
+</div>
+
+<div>
+	カナ：<%= @customer.first_name_kana %>
+</div>
+
+<div>
+	性別：<%= @customer.gender %>
+</div>
+
+<div>
+	誕生日：<%= @customer.birthday %>
+</div>
+
+
+
+<%=link_to "ユーザー情報の編集", edit_admin_customer_path(params[:id]) %>

@@ -27,8 +27,10 @@ devise_for :customers, controllers: {
 	end
 
 	resources :client_addresses, only:[:new, :create, :edit, :update, :destroy]
-	resources :carts, only:[:index, :create, :edit, :update, :destroy]
-	resources :products, only:[:show]
+	resources :cart_products, only:[:index, :edit, :update, :destroy]
+	resources :products, only:[:show] do
+		resources :cart_products, only:[:create]
+	end
 
 	resources :contacts, only:[:new, :create] do
 		collection do

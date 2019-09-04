@@ -1,0 +1,8 @@
+<% @customers.each do |c| %>
+	<div>
+		<%= link_to admin_customer_path(c.id) do %>
+		<%= c.last_name %>
+		<%= c.first_name %>
+		<% end %>
+	</div>
+<% end %>
