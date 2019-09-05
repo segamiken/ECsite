@@ -32,6 +32,8 @@ devise_for :customers, controllers: {
 		resources :cart_products, only:[:create]
 	end
 
+	resources :orders, only:[:new, :create]
+
 	resources :contacts, only:[:new, :create] do
 		collection do
 			post :confirm

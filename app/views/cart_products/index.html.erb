@@ -14,5 +14,16 @@
 		<%= p.product.price %>円 <br>
 		カート内個数: <%= p.quantity %>
 	</div>
+
+	<div>
+		<%= form_for p, url: cart_product_path(p.id) do |f| %>
+			<%= f.number_field :quantity %>
+			<%= f.submit "個数を変更" %>
+		<% end %>
+	</div>
+
+	<%= link_to "商品をカートから削除", cart_product_path(p.id), method: :delete, class: "btn" %>
 </div>
 <% end %>
+
+<%= link_to "購入画面へ行く", new_order_path %>
