@@ -19,7 +19,7 @@
 <h2>購入情報入力</h2>
 <div>
 <%= form_for(@order) do |f| %>
-	<%= f.collection_select :to_address, ClientAddress.all, :id, :address %>
+	<%= f.collection_select :to_address, current_customer.client_addresses.all, :id, :address %>
 	<br>
 	<%= f.select :payment_method, ["クレジットカード", "銀行振込", "コンビニ決済"], :prompt => "選択してください" %>
 	<br>
