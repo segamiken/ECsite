@@ -1,14 +1,16 @@
-<h2>管理者ログイン</h2>
+<h2 class="title">管理者ログイン</h2>
+
+<section class="form-all">
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+    <%= f.label :email, "メールアドレス", class: "form-label" %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :password, "パスワード" %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+    <%= f.label :password, "パスワード", class: "form-label" %><br />
+    <%= f.password_field :password, autocomplete: "current-password", class: "form-field" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
@@ -19,8 +21,10 @@
   <% end %>
 
   <div class="actions">
-    <%= f.submit "管理者としてログイン" %>
+    <%= f.submit "管理者としてログイン", class: "btn" %>
   </div>
 <% end %>
 
 <%= render "admins/shared/links" %>
+
+</section>

@@ -1,6 +1,5 @@
-<section class="title">
-	<h1>購入商品一覧</h1>
-</section>
+<h1 class="title">購入商品一覧</h1>
+
 
 <% @cart_products.each do |c| %>
 <div class="product__images clearfix">
@@ -16,14 +15,16 @@
 </div>
 <% end %>
 
-<h2>購入情報入力</h2>
-<div>
+<h2 class="title">購入情報入力</h2>
+<section class="form-all">
 <%= form_for(@order) do |f| %>
-	<%= f.collection_select :to_address, current_customer.client_addresses.all, :id, :address %>
+	<%= f.label :to_address, "お届け先", class: "form-label" %> <br>
+	<%= f.collection_select :to_address, current_customer.client_addresses.all, :address, :address, :prompt => "選択してください", class: "form-field" %>
 	<br>
-	<%= f.select :payment_method, ["クレジットカード", "銀行振込", "コンビニ決済"], :prompt => "選択してください" %>
+	<%= f.label :payment_method, "お支払い方法", class: "form-label" %><br>
+	<%= f.select :payment_method, ["クレジットカード", "銀行振込", "コンビニ決済"], :prompt => "選択してください", class: "form-field" %>
 	<br>
-	<%= f.submit "購入する" %>
+	<%= f.submit "購入する", class: "btn" %>
 
 <% end %>
-</div>
+</section>

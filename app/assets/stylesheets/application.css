@@ -14,6 +14,9 @@
  *= require_self
  */
 
+
+/* 共通デザイン */
+
 * {
   margin: 0;
   padding: 0;
@@ -26,12 +29,6 @@
 	clear: both;
 }
 
-header {
-	width: 100%;
-	background-color: yellow;
-	padding: 20px;
-}
-
 a {
 	text-decoration: none;
 }
@@ -40,6 +37,13 @@ li {
 	list-style: none;
 }
 
+
+/* ヘッダーデザイン */
+header {
+	width: 100%;
+	background-color: yellow;
+	padding: 20px;
+}
 
 .header__title {
 	text-align: center;
@@ -55,6 +59,9 @@ li {
 	margin: 0 5%;
 }
 
+
+
+/* 商品一覧デザイン */
 
 .product__images {
 	float: left;
@@ -72,3 +79,42 @@ li {
 	width: 200px;
 	height: 200px;
 }
+
+
+
+/* formデザイン */
+.title {
+	text-align: center;
+	padding: 20px 0;
+}
+
+.form-all {
+   width: 60%;
+   margin: 0 auto;
+   padding:20px 0;
+}
+
+.form-label {
+	font-size: 20px;
+    text-align: left;
+    line-height: 40px;
+}
+
+.form-field {
+	text-align: center;
+    background-color: #f0f0f0;
+    border-radius: 10px 10px 10px 10px;
+    border-style: none;
+    height: 40px;
+    width: 100%;
+    padding: 0 15px;
+}
+
+ .btn {
+   background-color: green;
+   color: white;
+   height: 2rem;
+   width: 7rem;
+   border-style: none;
+   font-size: 15px;
+ }
