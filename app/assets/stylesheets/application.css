@@ -117,3 +117,10 @@ header {
    border-style: none;
    font-size: 15px;
  }
+
+.purchase-history {
+	width: 50%;
+	margin: 0 auto;
+	background-color: #F2F2F2;
+	margin-bottom: 40px;
+}
