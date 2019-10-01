@@ -1,0 +1,17 @@
+
+<h1>購入履歴</h1>
+<% @orders.each do |f|%>
+	<%= f.payment_method %>
+	<br>
+	<%= f.to_address %>
+	<br>
+	<% f.order_products.each do |p| %>
+		<%= p.cd_title %>
+		<br>
+		<%= p.label_name %>
+		<br>
+		<%= p.price %>
+		<br>
+	<% end %>
+
+<% end %>

@@ -1,6 +1,6 @@
 class Admin::ProductsController < ApplicationController
 	def index
-		@products = Product.all
+		@products = Product.where(buy_capable: true)
 	end
 
 	def new
@@ -13,7 +13,7 @@ class Admin::ProductsController < ApplicationController
 	def create
 		@product = Product.new(product_params)
 		if @product.save
-			redirect_to '/'
+			redirect_to admin_products_path
 		else
 			render :new
 		end
@@ -26,10 +26,14 @@ class Admin::ProductsController < ApplicationController
 	def update
 		@product = Product.find(params[:id])
 		if @product.update(product_params)
-			redirect_to '/'
+			redirect_to admin_products_path
 		else
 			render :edit
 		end
+	end
+
+	def show
+		@product = Product.find(params[:id])
 	end
 
 	def destroy
@@ -37,6 +41,6 @@ class Admin::ProductsController < ApplicationController
 
 	private
 	def product_params
-		params.require(:product).permit(:genre_id, :cd_title, :label_name, :product_image, :price, :stock, product_discs_attributes: [:id, :disc_title, :destroy, disc_songs_attributes: [:id, :song_name, :_destroy], disc_singers_attributes: [:id, :singer_name, :_destroy]])
+		params.require(:product).permit(:genre_id, :cd_title, :label_name, :product_image, :price, :stock, :buy_capable, product_discs_attributes: [:id, :disc_title, :destroy, disc_songs_attributes: [:id, :song_name, :_destroy], disc_singers_attributes: [:id, :singer_name, :_destroy]])
 	end
 end

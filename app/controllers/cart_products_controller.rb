@@ -16,6 +16,21 @@ class CartProductsController < ApplicationController
 		end
 	end
 
+	def update
+		@cart = CartProduct.find(params[:id])
+		if @cart.update(cart_params)
+			redirect_to cart_products_path
+		else
+			render :index
+		end
+	end
+
+	def destroy
+		@cart = CartProduct.find(params[:id])
+		@cart.destroy
+		redirect_to cart_products_path
+	end
+
 	private
 	def cart_params
 		params.require(:cart_product).permit(:quantity)

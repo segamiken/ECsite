@@ -26,7 +26,12 @@
 
   <div class="field">
     <%= f.label :genre_id, "ジャンル" %>
-    <%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
+    <%= f.collection_select :genre_id, Genre.all, :id, :genre_name, :prompt => "選択してください" %>
+  </div>
+
+  <div class="field">
+    <%= f.label :buy_capable, "商品ステータス" %>
+    <%= f.select :buy_capable, [["販売中", true], ["販売停止中", false]] %>
   </div>
 
 

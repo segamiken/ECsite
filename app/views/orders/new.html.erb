@@ -1,0 +1,29 @@
+<h1 class="title">購入商品一覧</h1>
+
+<div class="clearfix">
+<% @cart_products.each do |c| %>
+<div class="product__images clearfix">
+	<%= attachment_image_tag c.product, :product_image, fallback: "img/no_image.jpg", class: "images" %>
+	<div class="product__description">
+	<%= c.product.cd_title %>
+	<br>
+	個数：<%= c.quantity %>
+
+	<br>
+	<%= link_to "商品をカートから削除", cart_product_path(c.id), method: :delete, class: "btn" %>
+	</div>
+</div>
+<% end %>
+</div>
+
+<h2>購入情報入力</h2>
+<%= form_for(@order) do |f| %>
+	<%= f.label :to_address, "お届け先", class: "form-label" %> <br>
+	<%= f.collection_select :to_address, current_customer.client_addresses.all, :address, :address, :prompt => "選択してください", class: "form-field" %>
+	<br>
+	<%= f.label :payment_method, "お支払い方法", class: "form-label" %><br>
+	<%= f.select :payment_method, ["クレジットカード", "銀行振込", "コンビニ決済"], :prompt => "選択してください", class: "form-field" %>
+	<br>
+	<%= f.submit "購入する", class: "btn" %>
+
+<% end %>

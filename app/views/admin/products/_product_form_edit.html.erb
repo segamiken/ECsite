@@ -29,6 +29,11 @@
     <%= f.collection_select :genre_id, Genre.all, :id, :genre_name %>
   </div>
 
+  <div class="field">
+    <%= f.label :buy_capable, "商品ステータス" %>
+    <%= f.select :buy_capable, [["販売中", true], ["販売停止中", false]] %>
+  </div>
+
 
   <h3>ディスク詳細</h3>
   <div id="discs">

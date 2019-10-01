@@ -1,40 +1,61 @@
-<h2>基本情報</h2>
+<h2 class="title">基本情報</h2>
 
-<div>
-	メールアドレス：<%= @customer.email %>
+<section class="form-all">
+
+<p>メールアドレス</p>
+<div class="form-field">
+	<%= @customer.email %>
 </div>
 
-<div>
-	苗字：<%= @customer.last_name %>
+<p>苗字</p>
+<div class="form-field">
+	<%= @customer.last_name %>
 </div>
 
-<div>
-	名前：<%= @customer.first_name %>
+<p>名前</p>
+<div class="form-field">
+	<%= @customer.first_name %>
 </div>
 
-<div>
-	カナ：<%= @customer.last_name_kana %>
+<p>苗字カナ</p>
+<div class="form-field">
+	<%= @customer.last_name_kana %>
 </div>
 
-<div>
-	カナ：<%= @customer.first_name_kana %>
+<p>名前カナ</p>
+<div class="form-field">
+	<%= @customer.first_name_kana %>
 </div>
 
-<div>
-	性別：<%= @customer.gender %>
+<p>性別</p>
+<div class="form-field">
+	<%= @customer.gender %>
 </div>
 
-<div>
-	誕生日：<%= @customer.birthday %>
+<p>誕生日</p>
+<div class="form-field">
+	<%= @customer.birthday %>
 </div>
 
+<% if customer_signed_in? %>
+<%=link_to "基本情報の編集", edit_customer_path(params[:id]), class: "btn" %> <br>
+<%=link_to "カート内商品を見る", cart_products_path, class: "btn" %> <br>
+<%=link_to "購入履歴を見る", orderd_customers_path, class: "btn" %>
+<% end %>
 
-<h2>登録住所</h2>
+
+<h2 class="title">登録住所</h2>
 <div>
 	<% @customer.client_addresses.each do |a| %>
-		<%= a.postal_code %> <br>
- 		<%= a.address %> <br>
- 		<%=link_to "住所の変更", edit_client_address_path(a.id) %>
+		郵便番号
+		<p class="form-field">
+			<%= a.postal_code %>
+		</p>
+		住所
+		<p class="form-field">
+			<%= a.address %>
+		</p>
+ 		<%=link_to "住所の変更", edit_client_address_path(a.id), class: "btn" %> <br>
 
 	<% end %>
 </div>
@@ -42,14 +63,15 @@
 
 
 <% if customer_signed_in? %>
-<% if @customer.id == current_customer.id %>
-<%=link_to "基本情報の編集", edit_customer_path(params[:id]) %>
 
 <%=link_to "住所の追加", new_client_address_path %>
 
 
-<%=link_to "カート内商品を見る", cart_products_path %>
+
+
+
+
 
 <% end %>
-<% end %>
 
+</section>

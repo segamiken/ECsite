@@ -1,30 +1,30 @@
+<h2 class="title">住所の追加</h2>
 
-<h2>住所の追加</h2>
-
+<section class="form-all">
 <%= form_for @address,url: client_addresses_path do |f| %>
   <div class="field">
-    <%= f.label :postal_code, "郵便番号" %><br />
-    <%= f.text_field :postal_code %>
+    <%= f.label :postal_code, "郵便番号",  class: "form-label" %><br />
+    <%= f.text_field :postal_code, class: "form-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :address, "住所" %><br />
-    <%= f.text_field :address %>
+    <%= f.label :address, "住所", class: "label" %><br />
+    <%= f.text_field :address, class: "form-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :name, "お届け先氏名" %><br />
-    <%= f.text_field :name %>
+    <%= f.label :name, "お届け先氏名", class: "form-label" %><br />
+    <%= f.text_field :name, class: "form-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :name_kana, "氏名(カナ)" %><br />
-    <%= f.text_field :name_kana %>
+    <%= f.label :name_kana, "氏名(カナ)", class: "form-label" %><br />
+    <%= f.text_field :name_kana, class: "form-field" %>
   </div>
 
 
   <div class="actions">
-    <%= f.submit "住所の登録" %>
+    <%= f.submit "住所の登録", class: "btn" %>
   </div>
 <% end %>
-
+</section>

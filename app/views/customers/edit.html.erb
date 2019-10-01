@@ -1,43 +1,46 @@
-<h2>ユーザーの編集</h2>
+<h2 class="title">ユーザーの編集</h2>
+
+<section class="form-all">
 
 <%= form_for(@customer) do |f| %>
   <div class="field">
-    <%= f.label :email, "メールアドレス" %><br />
-    <%= f.email_field :email %>
+    <%= f.label :email, "メールアドレス", class: "form-label" %><br />
+    <%= f.email_field :email, class: "form-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :last_name, "苗字" %><br />
-    <%= f.text_field :last_name %>
+    <%= f.label :last_name, "苗字", class: "form-label" %><br />
+    <%= f.text_field :last_name, class: "form-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :first_name, "名前" %><br />
-    <%= f.text_field :first_name %>
+    <%= f.label :first_name, "名前", class: "form-label" %><br />
+    <%= f.text_field :first_name, class: "form-field" %>
   </div>
 
  <div class="field">
-    <%= f.label :last_name_kana, "苗字カナ" %><br />
-    <%= f.text_field :last_name_kana%>
+    <%= f.label :last_name_kana, "苗字カナ", class: "form-label" %><br />
+    <%= f.text_field :last_name_kana, class: "form-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :first_name_kana, "名前カナ" %><br />
-    <%= f.text_field :first_name_kana %>
+    <%= f.label :first_name_kana, "名前カナ", class: "form-label" %><br />
+    <%= f.text_field :first_name_kana, class: "form-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :gender, "姓" %><br />
-    <%= f.select :gender, Customer.genders.keys %>
+    <%= f.label :gender, "姓", class: "form-label" %><br />
+    <%= f.select :gender, Customer.genders.keys, class: "form-field" %>
   </div>
 
   <div class="field">
-    <%= f.label :birthday, "誕生日" %><br />
-    <%= f.date_select :birthday, :use_month_numbers => true, :use_two_digit_numbers => true, start_year: 1930 %>
+    <%= f.label :birthday, "誕生日",  class: "form-label" %><br />
+    <%= f.date_select :birthday, :use_month_numbers => true, :use_two_digit_numbers => true, start_year: 1930, class: "form-field" %>
   </div>
 
 
   <div class="actions">
-    <%= f.submit "編集完了" %>
+    <%= f.submit "編集完了", class: "btn" %>
   </div>
 <% end %>
+</section>
