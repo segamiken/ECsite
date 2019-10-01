@@ -2,7 +2,11 @@
 	<h1>カート内商品一覧</h1>
 </section>
 
+<div>
+	<%= link_to "購入画面へ行く", new_order_path %>
+</div>
 
+<div class="clearfix">
 <% @products.each do |p| %>
 <div class="product__images">
 	<%= link_to product_path(p.product_id) do %>
@@ -11,19 +15,18 @@
 
 	<div class="product__description">
 		<%= p.product.cd_title %> <br>
-		<%= p.product.price %>円 <br>
+		<% price = p.product.price * 1.1%>
+		<%= price.floor %>円(税込) <br>
 		カート内個数: <%= p.quantity %>
 	</div>
 
 	<div>
 		<%= form_for p, url: cart_product_path(p.id) do |f| %>
-			<%= f.number_field :quantity %>
+			<%= f.number_field :quantity, min: 1, max: p.product.stock %>
 			<%= f.submit "個数を変更" %>
 		<% end %>
+		<%= link_to "商品をカートから削除", cart_product_path(p.id), method: :delete, class: "btn" %>
 	</div>
-
-	<%= link_to "商品をカートから削除", cart_product_path(p.id), method: :delete, class: "btn" %>
 </div>
 <% end %>
-
-<%= link_to "購入画面へ行く", new_order_path %>
+</div>

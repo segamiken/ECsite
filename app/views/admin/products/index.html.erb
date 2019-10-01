@@ -1,17 +1,18 @@
 <section class="title">
-	<h1>商品一覧</h1>
+	<h1>商品一覧(販売中)</h1>
 </section>
 
 
 <% @products.each do |p| %>
 <div class="product__images">
-	<%= link_to product_path(p.id) do %>
+	<%= link_to admin_product_path(p.id) do %>
 	<%= attachment_image_tag p, :product_image, fallback: "img/no_image.jpg", class: "images" %>
 	<% end %>
 
 	<div class="product__description">
 		<%= p.cd_title %> <br>
-		<%= p.price %>円
+		<% price = p.price * 1.1 %>
+		<%= price.floor %>円(税込)
 	</div>
 </div>
 <% end %>

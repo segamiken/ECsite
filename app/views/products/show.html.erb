@@ -1,7 +1,12 @@
 <h2>商品詳細</h2>
 
 <div>
-	商品名：<%= @product.cd_title %>
+	<%= attachment_image_tag @product, :product_image, fallback: "img/no_image.jpg", class: "images" %> <br>
+	商品名：<%= @product.cd_title %> <br>
+
+	<% price = @product.price * 1.1 %>
+	価格：<%= price.floor %>円(税込) <br>
+	在庫<%= @product.stock %>個
 </div>
 
 
@@ -12,7 +17,7 @@
 	<h3>カートへ追加</h3>
 	<%= f.label :quantity, "個数" %>
 	<br>
-	<%= f.number_field :quantity %>
+	<%= f.number_field :quantity, min: 1, max: @product.stock %>
 	<br>
 	<%= f.submit "カートに商品を追加" %>
 	<% end %>

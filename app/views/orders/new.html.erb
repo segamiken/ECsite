@@ -1,6 +1,6 @@
 <h1 class="title">購入商品一覧</h1>
 
-
+<div class="clearfix">
 <% @cart_products.each do |c| %>
 <div class="product__images clearfix">
 	<%= attachment_image_tag c.product, :product_image, fallback: "img/no_image.jpg", class: "images" %>
@@ -14,9 +14,9 @@
 	</div>
 </div>
 <% end %>
+</div>
 
-<h2 class="title">購入情報入力</h2>
-<section class="form-all">
+<h2>購入情報入力</h2>
 <%= form_for(@order) do |f| %>
 	<%= f.label :to_address, "お届け先", class: "form-label" %> <br>
 	<%= f.collection_select :to_address, current_customer.client_addresses.all, :address, :address, :prompt => "選択してください", class: "form-field" %>
@@ -27,4 +27,3 @@
 	<%= f.submit "購入する", class: "btn" %>
 
 <% end %>
-</section>

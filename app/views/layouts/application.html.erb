@@ -16,7 +16,7 @@
       <% if customer_signed_in? %>
         <%=link_to "CD SAMURAI", root_path %>
       <% elsif admin_signed_in? %>
-        <%=link_to "CD SAMURAI", root_path %>
+        <%=link_to "CD SAMURAI", admin_products_path %>
       <% else %>
         <%=link_to "CD SAMURAI", root_path %>
       <% end %>
@@ -40,13 +40,7 @@
           <!--管理者ログイン時 -->
          <% elsif admin_signed_in? %>
         <li class="header__item">
-              <%= link_to "商品一覧" %>
-        </li>
-        <li class="header__item">
               <%= link_to "ユーザー一覧", admin_customers_path %>
-        </li>
-        <li class="header__item">
-              <%= link_to "商品追加", new_admin_product_path %>
         </li>
 
         <li class="header__item">
@@ -54,7 +48,11 @@
         </li>
 
         <li class="header__item">
-              <%= link_to "お問い合わせ一覧" %>
+              <%= link_to "商品追加", new_admin_product_path %>
+        </li>
+
+        <li class="header__item">
+              <%= link_to "入荷履歴一覧" %>
         </li>
         <li class="header__item">
               <%= link_to "ログアウト",  destroy_admin_session_path, :method => :delete  %>

@@ -1,7 +1,7 @@
 <h2 class="title">住所の変更</h2>
 
 <section class="form-all">
-<%= form_for @address,url: client_addresses_path do |f| %>
+<%= form_for @address,url: client_address_path do |f| %>
   <div class="field">
     <%= f.label :postal_code, "郵便番号",  class: "form-label" %><br />
     <%= f.text_field :postal_code, class: "form-field" %>
