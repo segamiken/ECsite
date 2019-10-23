@@ -1,0 +1,12 @@
+<h1 class="title">入荷履歴</h1>
+
+<% @arrivals.each do |arrival|%>
+<div class="purchase-history">
+	<h3>入荷概要</h3>
+	入荷日：<%= arrival.created_at %> <br>
+	商品名：<%= arrival.cd_title %> <br>
+	個数：<%= arrival.stock %> <br>
+	値段：<%= arrival.price %> <br>
+</div>
+
+<% end %>

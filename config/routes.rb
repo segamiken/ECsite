@@ -59,4 +59,6 @@ devise_for :customers, controllers: {
 	namespace :admin do
 		resources :genres, only:[:new, :create]
 	end
+
+	get 'admin/arrivals' => 'admin/products#arrival'
 end

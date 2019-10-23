@@ -1,17 +1,21 @@
 
-<h1>購入履歴</h1>
+<h1 class="title">購入履歴</h1>
+
 <% @orders.each do |f|%>
-	<%= f.payment_method %>
-	<br>
-	<%= f.to_address %>
-	<br>
+<div class="purchase-history">
+	<h3>購入概要</h3>
+	購入日：<%= f.created_at %> <br>
+	総額(送料500円込)：<%= f.total_price %> <br>
+	支払い方法：<%= f.payment_method %> <br>
+	お届け先：<%= f.to_address %><br>
+
+	<h3>購入内容</h3>
 	<% f.order_products.each do |p| %>
-		<%= p.cd_title %>
-		<br>
-		<%= p.label_name %>
-		<br>
-		<%= p.price %>
-		<br>
+	商品タイトル：<%= p.cd_title %> <br>
+	値段(税抜)：<%= p.price %> <br>
+	個数：<%= p.purchase_number %> <br>
+	小計(税込み)：<%= p.subtotal %> <br> <br>
 	<% end %>
+</div>
 
 <% end %>

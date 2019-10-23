@@ -13,6 +13,11 @@ class Admin::ProductsController < ApplicationController
 	def create
 		@product = Product.new(product_params)
 		if @product.save
+			arrival = Arrival.new
+			arrival.cd_title = @product.cd_title
+			arrival.stock = @product.stock
+			arrival.price = @product.price
+			arrival.save
 			redirect_to admin_products_path
 		else
 			render :new
@@ -21,6 +26,7 @@ class Admin::ProductsController < ApplicationController
 
 	def edit
 		@product = Product.find(params[:id])
+		@disc = @product.product_discs.build
 	end
 
 	def update
@@ -37,6 +43,10 @@ class Admin::ProductsController < ApplicationController
 	end
 
 	def destroy
+	end
+
+	def arrival
+		@arrivals = Arrival.all
 	end
 
 	private
