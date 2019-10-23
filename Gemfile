@@ -68,3 +68,7 @@ gem "refile-mini_magick"
 
 gem 'cocoon'
 gem "jquery-rails"
+
+group :production do
+  gem 'mysql2'
+end
