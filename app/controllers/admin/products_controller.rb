@@ -26,6 +26,7 @@ class Admin::ProductsController < ApplicationController
 
 	def edit
 		@product = Product.find(params[:id])
+		@disc = @product.product_discs.build
 	end
 
 	def update
